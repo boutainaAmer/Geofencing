@@ -1,6 +1,8 @@
 import { useState } from "react";
 import logo from "../assets/logo.png";
 import control from "../assets/control.png";
+import BasicMap from "./Leaflet/map";
+
 const Sidebar = () => {
   const [open, setOpen] = useState(true);
   const Menus = [
@@ -12,7 +14,7 @@ const Sidebar = () => {
     { title: "Setting", gap: true },]
 
   return (
-    <div className="flex">
+    <div className="flex space-x-20">
       <div
         className={` ${
           open ? "w-72" : "w-20 "
@@ -54,8 +56,9 @@ const Sidebar = () => {
           ))}
         </ul>
       </div>
-      <div className="h-screen flex-1 p-7">
+      <div className=" flex-1">
         <h1 className="text-2xl font-semibold ">Maps</h1>
+        <BasicMap/>
       </div>
     </div>
   );
