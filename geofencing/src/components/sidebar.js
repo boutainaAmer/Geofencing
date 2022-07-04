@@ -2,12 +2,13 @@ import { useState } from "react";
 import logo from "../assets/logo.png";
 import control from "../assets/control.png";
 import { SidebarData } from "./sidebareData";
+import BasicMap from "./Basicmap";
 
 const Sidebar = () => {
   const [open, setOpen] = useState(true);
 
   return (
-    <div className="flex space-x-20">
+    <div className="flex gap-x-4 ">
       <div
         className={` ${
           open ? "w-72" : "w-20 "
@@ -48,8 +49,11 @@ const Sidebar = () => {
               </span>
             </li>
           ))}
-        </ul>
+        </ul> 
       </div>
+      <div className="flex-initial w-full h-600">
+        <BasicMap/>
+        </div>
     </div>
      
   );

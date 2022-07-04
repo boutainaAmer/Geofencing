@@ -3,8 +3,7 @@ import * as FaIcons from 'react-icons/fa';
 import * as AiIcons from 'react-icons/ai';
 import * as IoIcons from 'react-icons/io';
 import * as MdIcons from 'react-icons/md';
-import * as GrIcons from 'react-icons/gr';
-import * as BiIcons from "react-icons/bi";
+import * as BiIcons from 'react-icons/bi';
 export const SidebarData =[
 {
   title:"Dashboard",

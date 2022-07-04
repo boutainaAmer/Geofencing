@@ -1,10 +1,7 @@
 import React from 'react'
-import Sidebar from "./components/sidebar"
-
+import Dashboard from "./components/Dashboard"
 export default function App() {
   return (
-    <div>
-      <Sidebar/>
-    </div>
+    <Dashboard/>
   )
 }
