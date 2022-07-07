@@ -11,16 +11,17 @@ const BasicMap = () => {
     const [center, setCenter] = useState({ lat: 36.7762, lng:  3.05997 });
     const ZOOM_LEVEL = 9;
     const [mapLayers, setMapLayers] = useState([]);
+
+    //create a geofence 
     const _onCreate = (e) => {
       console.log(e);
-  
       const { layerType, layer } = e;
-      if (layerType === "polygon") {
+      if (layerType === "circle") {
         const { _leaflet_id } = layer;
-  
+        //A method to show/hide a maplayer on the map
         setMapLayers((layers) => [
           ...layers,
-          { id: _leaflet_id, latlngs: layer.getLatLngs()[0] },
+          { id: _leaflet_id, radius: layer.getRadius(), center:layer.getConfig()}
         ]);
       }
     };
@@ -52,13 +53,14 @@ const BasicMap = () => {
         setMapLayers((layers) => layers.filter((l) => l.id !== _leaflet_id));
       });
     };
+   
     return (
       <>
         <div className="row">
             <div className="col">
-              <p>i'm here</p>
+             
               <MapContainer center={center} zoom={ZOOM_LEVEL} 
-                          style={{  height: 700 , width: 1240 }}>
+                          style={{  height: 600 , width: "100%",marginTop: 15,marginRight: 15 }}>
                              <FeatureGroup>
                              <EditControl
                     position="topright"
@@ -66,11 +68,9 @@ const BasicMap = () => {
                     onEdited={_onEdited}
                     onDeleted={_onDeleted}
                     draw={{
-                      rectangle: false,
-                      polyline: false,
-                      circle: false,
                       circlemarker: false,
                       marker: false,
+
                     }}
                   />
                 </FeatureGroup>
@@ -79,6 +79,7 @@ const BasicMap = () => {
                                   attribution={osm.maptiler.attribution}
                               />
                           </MapContainer>
+                          
                           <pre className="text-left">{JSON.stringify(mapLayers, 0, 2)}</pre>
              
             </div>     

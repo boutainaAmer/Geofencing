@@ -548,8 +548,8 @@ video {
 .pt-6 {
   padding-top: 1.5rem;
 }
-.text-center {
-  text-align: center;
+.text-left {
+  text-align: left;
 }
 .text-xl {
   font-size: 1.25rem;
@@ -569,6 +569,9 @@ video {
 .text-gray-300 {
   --tw-text-opacity: 1;
   color: rgb(209 213 219 / var(--tw-text-opacity));
+}
+.filter {
+  filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
 }
 .duration-300 {
   transition-duration: 300ms;
