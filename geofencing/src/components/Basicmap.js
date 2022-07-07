@@ -7,6 +7,7 @@ import osm from "./osm-providers";
 
 
 
+
 const BasicMap = () => {
     const [center, setCenter] = useState({ lat: 36.7762, lng:  3.05997 });
     const ZOOM_LEVEL = 9;
@@ -21,7 +22,7 @@ const BasicMap = () => {
         //A method to show/hide a maplayer on the map
         setMapLayers((layers) => [
           ...layers,
-          { id: _leaflet_id, radius: layer.getRadius(), center:layer.getConfig()}
+          { id:"circle"+_leaflet_id, radius: layer.getRadius()}
         ]);
       }
     };
