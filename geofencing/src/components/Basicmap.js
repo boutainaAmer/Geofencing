@@ -4,6 +4,7 @@ import { EditControl } from "react-leaflet-draw";
 import "leaflet/dist/leaflet.css";
 import "leaflet-draw/dist/leaflet.draw.css";
 import osm from "./osm-providers";
+import roads from "./../roads.json";
 
 
 
@@ -22,7 +23,7 @@ const BasicMap = () => {
         //A method to show/hide a maplayer on the map
         setMapLayers((layers) => [
           ...layers,
-          { id:"circle"+_leaflet_id, radius: layer.getRadius()}
+          { id:"circle"+_leaflet_id, radius: layer.getRadius(), center: layer.getLatLngs()}
         ]);
       }
     };
@@ -33,15 +34,7 @@ const BasicMap = () => {
         layers: { _layers },
       } = e;
   
-      Object.values(_layers).map(({ _leaflet_id, editing }) => {
-        setMapLayers((layers) =>
-          layers.map((l) =>
-            l.id === _leaflet_id
-              ? { ...l, latlngs: { ...editing.latlngs[0] } }
-              : l
-          )
-        );
-      });
+
     };
   
     const _onDeleted = (e) => {
@@ -80,6 +73,7 @@ const BasicMap = () => {
                                   attribution={osm.maptiler.attribution}
                               />
                           </MapContainer>
+                    
                           
                           <pre className="text-left">{JSON.stringify(mapLayers, 0, 2)}</pre>
              

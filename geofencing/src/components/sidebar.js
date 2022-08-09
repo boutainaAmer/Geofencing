@@ -12,7 +12,7 @@ const Sidebar = () => {
       <div
         className={` ${
           open ? "w-72" : "w-20 "
-        } bg-dark-purple h-full p-5  pt-8 relative duration-300`}
+        } bg-dark-purple h-screen p-5  pt-8 relative duration-300`}
       >
         <img
           src={control} alt=""
@@ -51,7 +51,7 @@ const Sidebar = () => {
           ))}
         </ul> 
       </div>
-      <div className="flex-initial w-full h-full">
+      <div className="flex-initial w-full h-600">
         <BasicMap/>
         </div>
     </div>
