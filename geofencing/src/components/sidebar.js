@@ -8,7 +8,7 @@ const Sidebar = () => {
   const [open, setOpen] = useState(true);
 
   return (
-    <div className="flex gap-x-4 ">
+    <div className="flex  ">
       <div
         className={` ${
           open ? "w-72" : "w-20 "
@@ -16,8 +16,8 @@ const Sidebar = () => {
       >
         <img
           src={control} alt=""
-          className={`absolute cursor-pointer -right-3 top-9 w-7 border-dark-purple
-           border-2 rounded-full  ${!open && "rotate-180"}`}
+          className={` z-0 absolute cursor-pointer -right-3 top-9 w-7 border-dark-purple
+           border-2 rounded-full   ${!open && "rotate-180"}`}
           onClick={() => setOpen(!open)}
         />
         <div className="flex gap-x-4 items-center">
@@ -51,7 +51,7 @@ const Sidebar = () => {
           ))}
         </ul> 
       </div>
-      <div className="flex-initial w-full h-600">
+      <div className="flex-initial w-full h-full">
         <BasicMap/>
         </div>
     </div>

@@ -9,9 +9,7 @@ const Leaflet = () => {
   let { path } = useRouteMatch();
   return (
     <Switch>
-      <Route path={`${path}/Basicmap`} component={BasicMap} />
-      
-  
+      <Route path={`${path}/Basicmap`} component={BasicMap} />  
     </Switch>
   );
 };
