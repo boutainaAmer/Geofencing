@@ -7,29 +7,18 @@ import osm from "./osm-providers";
 
 
 const BasicMap = () => {
-    const [center, setCenter] = useState({ lat: 36.7762, lng:  3.05997 });
+    const [center] = useState({ lat: 36.7762, lng:  3.05997 });
     const ZOOM_LEVEL = 9;
     const [mapLayers, setMapLayers] = useState([]);
 
     //create a geofence 
     const _onCreate = (e) => {
       console.log(e);
-      const { layerType, layer } = e;
-      if (layerType === "polyline") {
-        const { _leaflet_id } = layer;
-        //A method to show/hide a maplayer on the map
-        setMapLayers((layers) => [
-          ...layers,
-          { id:_leaflet_id, Points: layer.getLatLngs()}
-        ]);
-      }
     };
   
     const _onEdited = (e) => {
       console.log(e);
-      const {
-        layers: { _layers },
-      } = e;
+      
   
 
     };
@@ -41,7 +30,7 @@ const BasicMap = () => {
       } = e;
   
       Object.values(_layers).map(({ _leaflet_id }) => {
-        setMapLayers((layers) => layers.filter((l) => l.id !== _leaflet_id));
+        return setMapLayers((layers) => layers.filter((l) => l.id !== _leaflet_id));
       });
     };
    
