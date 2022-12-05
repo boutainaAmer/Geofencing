@@ -2,6 +2,7 @@
   "name": "geofencing",
   "version": "0.1.0",
   "private": true,
+  "author": "Abdelhakim Mhioul <hakim.mhioul@gmail.com>, Boutaina Amer <amerboutaina2000@gmail.com>",
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^13.3.0",
